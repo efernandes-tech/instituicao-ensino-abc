@@ -1,0 +1,74 @@
+<app-nav-menu [sistema]="sistema" [modulo]="modulo"></app-nav-menu>
+
+<main class="content min-vh-100">
+  <app-nav-bar></app-nav-bar>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+      <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+          <li class="breadcrumb-item">
+            <a href="home">
+              <fa-icon [icon]="faHome"></fa-icon>
+            </a>
+          </li>
+          <li class="breadcrumb-item"><a href="#">Financeiro</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{titulo}}</li>
+        </ol>
+      </nav>
+      <h2 class="h4">{{titulo}}</h2>
+      <p class="mb-0">Tela de contratos</p>
+    </div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      &nbsp;
+    </div>
+  </div>
+
+  <div class="card card-body border-0 shadow table-wrapper table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th class="border-gray-200">Nº</th>
+          <th class="border-gray-200">Descrição</th>
+          <th class="border-gray-200">Total</th>
+          <th class="border-gray-200">Parcelas</th>
+          <th class="border-gray-200">Valor Pago</th>
+          <th class="border-gray-200">Status</th>
+          <th class="border-gray-200 text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contrato of contratos">
+          <td>
+            <span class="fw-normal">Número C-{{contrato.id}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{contrato.descricao}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{contrato.valorTotal}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{contrato.numParcelas}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{contrato.valorPago}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{contrato.status}}</span>
+          </td>
+          <td class="text-right">
+            <a href="contrato/{{contrato.id}}" class="btn btn-sm btn-warning d-inline-flex align-items-center me-2">
+              <span class="me-1">
+                <fa-icon [icon]="faSearch"></fa-icon>
+              </span>
+              Parcelas
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-footer [sistema]="sistema" [modulo]="modulo"></app-footer>
+</main>

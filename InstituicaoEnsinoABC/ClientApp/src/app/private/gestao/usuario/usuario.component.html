@@ -1,0 +1,93 @@
+<app-nav-menu [sistema]="sistema" [modulo]="modulo"></app-nav-menu>
+
+<main class="content min-vh-100">
+  <app-nav-bar></app-nav-bar>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+      <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+          <li class="breadcrumb-item">
+            <a href="home">
+              <fa-icon [icon]="faHome"></fa-icon>
+            </a>
+          </li>
+          <li class="breadcrumb-item"><a href="#">Gestão</a></li>
+          <li class="breadcrumb-item"><a href="usuarios">{{titulo}}</a></li>
+          <li class="breadcrumb-item active capitalize" aria-current="page">{{acao}}</li>
+        </ol>
+      </nav>
+      <h2 class="h4">{{titulo}}</h2>
+      <p class="mb-0"></p>
+    </div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <a href="usuarios" class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+        <span class="me-1">
+          <fa-icon [icon]="faArrowLeft"></fa-icon>
+        </span>
+        Voltar
+      </a>
+    </div>
+  </div>
+
+  <form>
+    <div class="row">
+      <div class="col-12 mb-4">
+        <div class="card border-0 shadow components-section">
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-4 mb-3">
+                <div class="mb-4">
+                  <label class="my-1 me-2" for="inputAluno">Aluno</label>
+                  <select class="form-select" id="inputAluno" aria-label="Aluno" name="alunos_id">
+                    <option>
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="mb-4">
+                  <label for="inputLogin">Login <span>*</span></label>
+                  <input type="text" class="form-control" id="inputLogin" name="login" [(ngModel)]="usuario.login"
+                    [disabled]="isDisabled" required autofocus>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="mb-4">
+                  <label for="inputEmail">E-mail <span>*</span></label>
+                  <input type="email" class="form-control" id="inputEmail" name="email" [(ngModel)]="usuario.email"
+                    [disabled]="isDisabled" required>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3" *ngIf="acao == 'cadastrar' || acao == 'editar'">
+                <div class="mb-4">
+                  <label for="inputSenha">Senha</label>
+                  <input type="password" class="form-control" id="inputSenha" name="senha" [(ngModel)]="usuario.senha"
+                    [required]='pwdRequired'>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3" *ngIf="acao == 'cadastrar' || acao == 'editar'">
+                <div class="mb-4">
+                  <label for="inputReSenha">Re-Senha</label>
+                  <input type="password" class="form-control" id="inputReSenha" name="resenha" [(ngModel)]="resenha"
+                    [required]='pwdRequired'>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3" *ngIf="acao != 'detalhes'">
+                <button class="btn btn-{{acao == 'remover' ? 'danger' : 'primary'}} float-end capitalize" type="button"
+                  (click)="onSubmit()">
+                  {{acao}}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            * campos obrigatórios
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <app-footer [sistema]="sistema" [modulo]="modulo"></app-footer>
+</main>

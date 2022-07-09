@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [{
+			"type": "npm",
+			"script": "start",
+			"path": "InstituicaoEnsinoABC/ClientApp/",
+			"problemMatcher": [],
+			"label": "npm: start - InstituicaoEnsinoABC/ClientApp",
+			"detail": "ng serve"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "InstituicaoEnsinoABC/ClientApp/",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - InstituicaoEnsinoABC/ClientApp",
+			"detail": "ng build"
+		},
+		{
+			"type": "npm",
+			"script": "ng",
+			"path": "InstituicaoEnsinoABC/ClientApp/",
+			"problemMatcher": [],
+			"label": "npm: ng - InstituicaoEnsinoABC/ClientApp",
+			"detail": "ng"
+		}
+	]
+}

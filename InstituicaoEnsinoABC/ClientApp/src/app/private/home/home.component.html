@@ -1,0 +1,107 @@
+<app-nav-menu [sistema]="sistema" [modulo]="modulo"></app-nav-menu>
+
+<main class="content min-vh-100">
+  <app-nav-bar></app-nav-bar>
+
+  <div class="row mt-5">
+    <div class="col-12" *ngIf="!usuarioLogado.flagAdmin">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1>Instituição de Ensino ABC</h1>
+          <p>Bem-vindo ao seu portal do aluno!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12" *ngIf="usuarioLogado.flagAdmin">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1>Instituição de Ensino ABC</h1>
+          <p>Bem-vindo ao seu portal de gestão!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-4 mb-4" *ngIf="usuarioLogado.flagAdmin">
+      <div class="card border-0 shadow">
+        <div class="card-body">
+          <div class="row d-block d-xl-flex align-items-center">
+            <div
+              class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+              <div class="icon-shape icon-shape-primary rounded me-4 me-sm-0">
+                <fa-icon [icon]="faUserGraduate"></fa-icon>
+              </div>
+              <div class="d-sm-none">
+                <h2 class="fw-extrabold h5">Alunos</h2>
+                <h3 class="mb-1">{{totalAlunos}}</h3>
+              </div>
+            </div>
+            <div class="col-12 col-xl-7 px-xl-0">
+              <div class="d-none d-sm-block">
+                <h2 class="h6 text-gray-400 mb-0">Alunos</h2>
+                <h3 class="fw-extrabold mb-2">{{totalAlunos}}</h3>
+              </div>
+              <div class="small d-flex mt-1">
+                Total de alunos ativos no sistema
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-4 mb-4" *ngIf="usuarioLogado.flagAdmin">
+      <div class="card border-0 shadow">
+        <div class="card-body">
+          <div class="row d-block d-xl-flex align-items-center">
+            <div
+              class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+              <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
+                <fa-icon [icon]="faFileSignature"></fa-icon>
+              </div>
+              <div class="d-sm-none">
+                <h2 class="fw-extrabold h5">Contratos</h2>
+                <h3 class="mb-1">{{totalContratos}}</h3>
+              </div>
+            </div>
+            <div class="col-12 col-xl-7 px-xl-0">
+              <div class="d-none d-sm-block">
+                <h2 class="h6 text-gray-400 mb-0">Contratos</h2>
+                <h3 class="fw-extrabold mb-2">{{totalContratos}}</h3>
+              </div>
+              <div class="small d-flex mt-1">
+                Total de contratos realizadas na semana
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-4 mb-4" *ngIf="usuarioLogado.flagAdmin">
+      <div class="card border-0 shadow">
+        <div class="card-body">
+          <div class="row d-block d-xl-flex align-items-center">
+            <div
+              class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+              <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
+                <fa-icon [icon]="faMoneyBillWave"></fa-icon>
+              </div>
+              <div class="d-sm-none">
+                <h2 class="fw-extrabold h5">Pagamentos</h2>
+                <h3 class="mb-1">{{totalPagamentos}}</h3>
+              </div>
+            </div>
+            <div class="col-12 col-xl-7 px-xl-0">
+              <div class="d-none d-sm-block">
+                <h2 class="h6 text-gray-400 mb-0">Pagamentos</h2>
+                <h3 class="fw-extrabold mb-2">{{totalPagamentos}}</h3>
+              </div>
+              <div class="small d-flex mt-1">
+                Total de pagamentos registradas hoje
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer [sistema]="sistema" [modulo]="modulo"></app-footer>
+</main>

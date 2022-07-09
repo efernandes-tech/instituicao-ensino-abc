@@ -1,0 +1,102 @@
+<app-nav-menu [sistema]="sistema" [modulo]="modulo"></app-nav-menu>
+
+<main class="content min-vh-100">
+  <app-nav-bar></app-nav-bar>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+      <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+          <li class="breadcrumb-item">
+            <a href="home">
+              <fa-icon [icon]="faHome"></fa-icon>
+            </a>
+          </li>
+          <li class="breadcrumb-item"><a href="#">Financeiro</a></li>
+          <li class="breadcrumb-item"><a href="contratos">Contratos</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{titulo}}</li>
+        </ol>
+      </nav>
+      <h2 class="h4">{{titulo}}</h2>
+      <p class="mb-0">Tela de parcelas do contrato nº {{contrato_id}}</p>
+    </div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <a href="contratos" class="btn btn-sm btn-secondary d-inline-flex align-items-center">
+        <span class="me-1">
+          <fa-icon [icon]="faArrowLeft"></fa-icon>
+        </span>
+        Voltar
+      </a>
+    </div>
+  </div>
+
+  <div class="card card-body border-0 shadow table-wrapper table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th class="border-gray-200">Parcela</th>
+          <th class="border-gray-200">Vencimento</th>
+          <th class="border-gray-200">Valor</th>
+          <th class="border-gray-200">Status</th>
+          <th class="border-gray-200">Pago em</th>
+          <th class="border-gray-200 text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let parcela of parcelas">
+          <td>
+            <span class="fw-normal">{{parcela.numeroParcela}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{parcela.vencimento}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{parcela.valor}}</span>
+          </td>
+          <td>
+            <span class="badge bg-primary" *ngIf="parcela.pagamento.pixStatus == null">
+              Pendente
+            </span>
+            <span class="badge bg-warning" *ngIf="parcela.pagamento.pixStatus == 'ACTIVE'">
+              Aguardando
+            </span>
+            <span class="badge bg-success" *ngIf="parcela.pagamento.pixStatus == 'COMPLETED'">
+              Pago
+            </span>
+          </td>
+          <td>
+            <span class="fw-normal"
+              *ngIf="parcela.pagamento.pixStatus == 'COMPLETED'">{{parcela.pagamento.dataPagamento}}</span>
+          </td>
+          <td class="text-right">
+            <a href="pagamento/{{parcela.id}}/{{contrato_id}}"
+              class="btn btn-sm btn-primary d-inline-flex align-items-center me-2"
+              *ngIf="parcela.pagamento.pixStatus == null">
+              <span class="me-1">
+                <fa-icon [icon]="faDollarSign"></fa-icon>
+              </span>
+              Pagar
+            </a>
+            <a href="pagamento/{{parcela.id}}/{{contrato_id}}"
+              class="btn btn-sm btn-warning d-inline-flex align-items-center me-2"
+              *ngIf="parcela.pagamento.pixStatus == 'ACTIVE'">
+              <span class="me-1">
+                <fa-icon [icon]="faDollarSign"></fa-icon>
+              </span>
+              Verificar
+            </a>
+            <button class="btn btn-sm btn-success d-inline-flex align-items-center me-2"
+              *ngIf="parcela.pagamento.pixStatus == 'COMPLETED'">
+              <span class="me-1">
+                <fa-icon [icon]="faDollarSign"></fa-icon>
+              </span>
+              Pago
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-footer [sistema]="sistema" [modulo]="modulo"></app-footer>
+</main>

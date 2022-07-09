@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "af18799e-a033-4514-99b1-19826d3caac5",
+		"name": "InstituicaoEnsinoABC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "555559"
+	},
+	"item": [
+		{
+			"name": "Dev",
+			"item": [
+				{
+					"name": "Usuario",
+					"item": [
+						{
+							"name": "Usuario / Auth",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Origin",
+										"value": "{{origin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"admin@admin.com\",\r\n    \"Senha\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuario/authenticate",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuario",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuario / Get All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuario / Get / {id}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/usuario/5daefef4-b26e-4017-9296-a2d712ac5cc3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuario",
+										"5daefef4-b26e-4017-9296-a2d712ac5cc3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usuario / Post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Nome\": \"teste2\",\r\n    \"Email\": \"teste2@teste.com\",\r\n    \"Senha\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Aluno",
+					"item": [
+						{
+							"name": "Aluno / Read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/aluno",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aluno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aluno / Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nomeCompleto\": \"Ederson Fernandes\",\r\n    \"cpf\": \"12345678901\",\r\n    \"dataNascimento\": \"2000-01-01\",\r\n    \"enderecoCompleto\": \"Rua ABC, nº 123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/aluno",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aluno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aluno / Read / {id}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/aluno/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aluno",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aluno / Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"nomeCompleto\": \"Ederson Fernandes Teste\",\r\n    \"cpf\": \"12345678901\",\r\n    \"dataNascimento\": \"2000-01-01\",\r\n    \"enderecoCompleto\": \"Rua ABC, nº 123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/aluno",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aluno"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aluno / Delete / {id}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/aluno/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aluno",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Contrato",
+					"item": [
+						{
+							"name": "Contrato / Read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/contrato",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contrato"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Contrato / Read / {id}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/contrato/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contrato",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Contrato / Parcela / Read / {id}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/contrato/parcela/2/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contrato",
+										"parcela",
+										"2",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Prod",
+			"item": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJuYW1laWQiOiI1ZGFlZmVmNC1iMjZlLTQwMTctOTI5Ni1hMmQ3MTJhYzVjYzMiLCJuYmYiOjE2NTY2NzcyMTQsImV4cCI6MTY1NjY4ODAxNCwiaWF0IjoxNjU2Njc3MjE0fQ.0l6wr_vPgYDK-OsJ2eIQ3DHyaOwxsINGqij8FpadpPg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:5001/api",
+			"type": "string"
+		},
+		{
+			"key": "baseUrlProd",
+			"value": "https://instituicao-ensino-abc.herokuapp.com/api",
+			"type": "string"
+		},
+		{
+			"key": "origin",
+			"value": "http://localhost:4200",
+			"type": "string"
+		},
+		{
+			"key": "originProd",
+			"value": "https://instituicao-ensino-abc.herokuapp.com",
+			"type": "string"
+		}
+	]
+}

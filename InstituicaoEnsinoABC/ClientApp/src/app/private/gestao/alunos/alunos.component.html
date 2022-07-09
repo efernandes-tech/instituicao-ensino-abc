@@ -1,0 +1,83 @@
+<app-nav-menu [sistema]="sistema" [modulo]="modulo"></app-nav-menu>
+
+<main class="content min-vh-100">
+  <app-nav-bar></app-nav-bar>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+      <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+          <li class="breadcrumb-item">
+            <a href="home">
+              <fa-icon [icon]="faHome"></fa-icon>
+            </a>
+          </li>
+          <li class="breadcrumb-item"><a href="#">Gestão</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{titulo}}</li>
+        </ol>
+      </nav>
+      <h2 class="h4">{{titulo}}</h2>
+      <p class="mb-0">Gerenciar todos os alunos</p>
+    </div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <a href="aluno" class="btn btn-sm btn-primary d-inline-flex align-items-center">
+        <span class="me-1">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </span>
+        Novo Aluno
+      </a>
+    </div>
+  </div>
+
+  <div class="card card-body border-0 shadow table-wrapper table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th class="border-gray-200">Nome</th>
+          <th class="border-gray-200">CPF</th>
+          <th class="border-gray-200">Nascimento</th>
+          <th class="border-gray-200">Endereço</th>
+          <th class="border-gray-200 text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aluno of alunos">
+          <td>
+            <span class="fw-normal">{{aluno.nomeCompleto}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{aluno.cpf}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{aluno.dataNascimento | date: 'dd/MM/yyyy'}}</span>
+          </td>
+          <td>
+            <span class="fw-normal">{{aluno.enderecoCompleto}}</span>
+          </td>
+          <td class="text-right">
+            <a href="aluno/{{aluno.id}}/detalhes" class="btn btn-sm btn-info d-inline-flex align-items-center me-2">
+              <span class="me-1">
+                <fa-icon [icon]="faSearch"></fa-icon>
+              </span>
+              Detalhes
+            </a>
+            <a href="aluno/{{aluno.id}}/editar" class="btn btn-sm btn-primary d-inline-flex align-items-center me-2">
+              <span class="me-1">
+                <fa-icon [icon]="faPencilAlt"></fa-icon>
+              </span>
+              Editar
+            </a>
+            <a href="aluno/{{aluno.id}}/remover" class="btn btn-sm btn-danger d-inline-flex align-items-center me-2">
+              <span class="me-1">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </span>
+              Remover
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-footer [sistema]="sistema" [modulo]="modulo"></app-footer>
+</main>
